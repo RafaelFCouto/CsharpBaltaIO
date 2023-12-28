@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ya079936\\temp\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj": {}
+    "C:\\Users\\ya079936\\temp\\BaltaIO\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ya079936\\temp\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj": {
+    "C:\\Users\\ya079936\\temp\\BaltaIO\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ya079936\\temp\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ya079936\\temp\\BaltaIO\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj",
         "projectName": "BaltaDataAccess",
-        "projectPath": "C:\\Users\\ya079936\\temp\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj",
+        "projectPath": "C:\\Users\\ya079936\\temp\\BaltaIO\\BaltaDataAccess\\BaltaDataAccess\\BaltaDataAccess.csproj",
         "packagesPath": "C:\\Users\\ya079936\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ya079936\\temp\\BaltaDataAccess\\BaltaDataAccess\\obj\\",
+        "outputPath": "C:\\Users\\ya079936\\temp\\BaltaIO\\BaltaDataAccess\\BaltaDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

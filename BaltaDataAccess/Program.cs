@@ -9,7 +9,8 @@ namespace BaltaDataAccess
 
         static void Main(string[] args)
         {
-            const string connectionString = "Server=YMA3776N\\SQLEXPRESS;database=balta;trusted_connection = true;TrustServerCertificate=true";
+            //apontar servidor
+            const string connectionString = "Server=;database=balta;trusted_connection = true;TrustServerCertificate=true";
             //Microsoft.Data.SqlClient (NUGET)
 
             

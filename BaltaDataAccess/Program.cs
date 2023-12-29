@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using BaltaDataAccess.Models.Domain;
 using Dapper;
 using Microsoft.Data.SqlClient;
@@ -10,7 +11,7 @@ namespace BaltaDataAccess
         static void Main(string[] args)
         {
             //apontar servidor
-            const string connectionString = "Server=;database=balta;trusted_connection = true;TrustServerCertificate=true";
+            const string connectionString = ";database = balta;trusted_connection = true;TrustServerCertificate=true";
             //Microsoft.Data.SqlClient (NUGET)
 
             
@@ -18,13 +19,9 @@ namespace BaltaDataAccess
 
             using(var connection = new SqlConnection(connectionString))
             {
-                //ListCategories(connection);
-                //UpdateCategory(connection);
-                DeleteCategory(connection);
-                ListCategories(connection);
-                CreateManyCategories(connection);
-                ListCategories(connection);
-                //GetCategory(connection);
+
+                ExecuteProcedure(connection);
+                //CreateManyStudenties(connection);
 
 
 
@@ -108,7 +105,6 @@ namespace BaltaDataAccess
 
         }
 
-
         static void DeleteCategory(SqlConnection connection)
         {
             var deleteQuery = @"DELETE FROM
@@ -145,8 +141,6 @@ namespace BaltaDataAccess
             Console.WriteLine($"{category.Id} - {category.Title}");
 
         }
-
-
 
         static void CreateManyCategories(SqlConnection connection)
         {
@@ -208,6 +202,83 @@ namespace BaltaDataAccess
 
 
 
+        }
+        static void CreateManyStudenties(SqlConnection connection)
+        {
+            var student = new Student();
+            student.Id = Guid.NewGuid();
+            student.Name = "Rafael Freire";
+            student.Email = "rafael@email.com";
+            student.Document = "document";
+            student.Phone = "1234567890";
+            student.Birthdate = new DateTime(2001,10,10);
+            student.CreateDate = new DateTime(2023, 10, 29);
+
+            var student2 = new Student();
+            student2.Id = Guid.NewGuid();
+            student2.Name = "Gabriel Freire";
+            student2.Email = "gabriel@email.com";
+            student2.Document = "document";
+            student2.Phone = "1234567890";
+            student2.Birthdate = new DateTime(2001, 10, 10);
+            student2.CreateDate = new DateTime(2023, 11, 29);
+
+            var insertSql = @"INSERT INTO 
+                    [Student] 
+                VALUES(
+                    @Id,
+                    @Name,
+                    @Email,
+                    @Document,
+                    @Phone,
+                    @Birthdate,
+                    @CreateDate)";
+
+            var rows = connection.Execute(insertSql, new[]
+            {
+                new
+                {
+                    student.Id,
+                    student.Name,
+                    student.Email,
+                    student.Document,
+                    student.Phone,
+                    student.Birthdate,
+                    student.CreateDate
+                },
+                new
+                {
+                    student2.Id,
+                    student2.Name,
+                    student2.Email,
+                    student2.Document,
+                    student2.Phone,
+                    student2.Birthdate,
+                    student2.CreateDate
+                }
+            }
+            
+            
+            
+            
+            
+            
+            );
+            Console.WriteLine($"{rows} linhas inseridas");
+
+
+
+        }
+
+        static void ExecuteProcedure(SqlConnection connection) 
+        {
+
+            var procedure = "[spDeleteStudent]";
+            var pars = new { StudentId = "859B79E3-B091-4131-888A-962E3E5CFB33" };
+
+            var affectedRows = connection.Execute( procedure, pars, commandType: CommandType.StoredProcedure );
+
+            Console.WriteLine($"{affectedRows} linhas afetadas.");
         }
 
     }
